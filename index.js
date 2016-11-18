@@ -9,7 +9,12 @@ require('babel-register')({
     'babel-preset-es2015',
     'babel-preset-stage-0',
     'babel-preset-react'
-  ].map(require.resolve)
+  ].map(require.resolve),
+  plugins: [
+    [require.resolve('babel-plugin-transform-require-ignore'), {
+      extensions: ['.css'],
+    }]
+  ]
 })
 
 module.exports = (Root, options = {}) => {
